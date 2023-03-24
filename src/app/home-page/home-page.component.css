@@ -1,0 +1,520 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  word-break: break-word;
+}
+
+.about-company-section {
+  background-color: #f6f6f6;
+  color: #353c4a;
+  padding: 2em;
+  font-weight: 200;
+  display: grid; 
+  grid-gap: 2em;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  'header  header  header     image image image'
+  'content  content   content image image image'
+  'content2 content2 content2 image image image'
+  'info1   info2   info3      image image image';
+} 
+.about-company-picture {
+  grid-area: image;
+  background-image: url('/assets/images/background_about_company.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.technologies-section {
+  background-color: #f6f6f6;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black; 
+  padding: 2em;
+  display: grid; 
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 4em;
+}
+.welcome-screen {
+  position: relative;
+  background-image: url('/assets/images/homeScreen.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; 
+  min-height: calc(100vh);
+}
+
+.header-text {
+  word-break: break-word;
+  line-height: 1.2em;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+.header-text-medium {
+  line-height: 1.5em;
+  font-size: 2.5rem;
+  text-align: center;
+  width: 100%;
+}
+.content-text {
+  font-size: 1.5rem;
+  line-height: 1.2em;
+}
+.text-align-middle {
+  text-align: center;
+}
+
+.header-welcome-text-section {
+  color: #fff;
+  opacity: 0;
+}
+
+.content {
+  text-align: justify;
+	text-justify: auto;
+  word-break: keep-all;
+}
+.content2 {
+  text-align: justify; 
+  word-break: keep-all;
+}
+
+.header-welcome-content {
+  /* position: absolute;
+  width: 100%;
+  padding: 1.5em;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  padding-top: 20%;
+}
+
+.contact-us-btn {
+  position: absolute;
+  padding: 15px 0px 2em 30px;
+  bottom: 4rem;
+  left: 4rem;
+}
+.btn {
+  font-size: 2.5rem;
+  color: #fff;
+  opacity: 0;
+  font-weight: 300;
+  animation: slideright .5s ease-out forwards;
+  transition-duration: .3s;
+}
+.text-animation.active {
+  transform: scale(0.94);
+  animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+  opacity: 1;
+}
+
+.tech-logo {
+  opacity: 30%; 
+  position: absolute;
+  max-height: 85px;
+}
+.animated-logo-type1 {
+  animation: animateType1 6s infinite;
+}
+.animated-logo-type2 {
+  animation: animateType2 9s infinite;
+}
+.animated-logo-type3 {
+  animation: animateType3 3s infinite;
+}
+.animated-logo-type4 {
+  animation: animateType4 5s infinite;
+}
+
+@media screen and (max-width: 519px) {
+  .header-text, .header-text-medium {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  .content-text {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 2rem;
+  }
+  .about-company-section {
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'header   header'
+    'content  content'
+    'content2 content2'
+    'info1    info2'
+    'info3    info3'
+    'image    image'
+    ;
+  }
+  .about-company-picture {
+    visibility: hidden;
+    display: none;
+  }
+  .technologies-section {
+    grid-template-columns: 1fr;
+  }
+  .tech-logo {
+    max-height: 45px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 520px) {
+  .header-text, .header-text-medium {
+    font-size: 2rem;
+  }
+  .content-text {
+    font-size: 1.2rem;
+  }
+  .btn {
+    font-size: 2rem;
+  }
+  .about-company-section {
+    grid-gap: 1.5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'header   header'
+    'content  content'
+    'content2 content2'
+    'info1    info2'
+    'info3    info3'
+    'image    image'
+    ;
+  }
+  .about-company-picture {
+    visibility: hidden;
+    display: none;
+  }
+  .technologies-section {
+    grid-template-columns: 1fr;
+  }
+  .tech-logo {
+    max-height: 65px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .header-text, .header-text-medium {
+    font-size: 2.5rem;
+  }
+  .content-text {
+    font-size: 1.5rem;
+  }
+  .about-company-section {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'header   header'
+    'content  content'
+    'content2 content2'
+    'info1    info2'
+    'info3    info3'
+    'image    image'
+    ;
+  }
+  
+  .technologies-section {
+    grid-template-columns: 1fr;
+  }
+  .tech-logo {
+    max-height: 75px;
+  }
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.text-animation.active span {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(4px);
+}
+.text-animation.active span:nth-child(1) {
+  animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(2) {
+  animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(3) {
+  animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(4) {
+  animation: fade-in 0.8s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(5) {
+  animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(6) {
+  animation: fade-in 0.8s 0.6s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(7) {
+  animation: fade-in 0.8s 0.7s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+.text-animation.active span:nth-child(8) {
+  animation: fade-in 0.9s 0.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.slideleft {
+  opacity: 0;
+  animation: fade-out-left .3s ease forwards;
+}
+.slideright {
+  opacity: 0;
+  animation: fade-out-right .3s ease forwards;
+}
+.slidetop{
+  opacity:0;
+  animation: fade-out-top .3s ease forwards;
+}
+
+.slidetop.active {
+  animation: slidetop .4s ease forwards;
+}
+.active .slideright, .slideright.active {
+  animation: slideright .3s ease forwards;
+}
+.active .slideleft, .slideleft.active {
+  animation: slideleft .3s ease forwards;
+}
+
+@keyframes fade-out-right {
+  0% {
+     opacity:1;
+     transform: translateX(0px);
+  }
+  99% {
+    opacity:0;
+    transform: translateX(-5px);
+ }
+  100% {
+     opacity:0;
+     transform: translateX(0px);
+  }
+} 
+@keyframes fade-out-top {
+  0% {
+     opacity:1;
+     transform: translateY(0px);
+  }
+  99% {
+     opacity:0;
+     transform: translateY(-120px);
+  }
+  100% {
+    opacity:0;
+    transform: translateY(0px);
+ }
+} 
+
+@keyframes fade-out-left {
+  0% {
+     opacity:1;
+     transform: translateX(0px);
+  }
+  99% {
+    opacity:0;
+    transform: translateX(100px);
+  }
+  100% {
+     opacity:0;
+     transform: translateX(0px);
+  }
+} 
+@keyframes slideright {
+  0% {
+    opacity:0;
+    transform: translateX(0px);
+  }
+  1% {
+     opacity:0;
+     transform: translateX(-50px);
+  }
+  100% {
+     opacity:1;
+     transform: translateX(0);
+  }
+} 
+@keyframes slideleft {
+  0% {
+    opacity:0;
+    transform: translateX(0px);
+  }
+  1% {
+     opacity:0;
+     transform: translateX(100px);
+  }
+  100% {
+     opacity:1;
+     transform: translateX(0);
+  }
+}
+
+@keyframes slidetop {
+  0% {
+    opacity:0;
+    transform: translateY(0px);
+  }
+  1% {
+     opacity:0;
+     transform: translateY(-100px);
+  }
+  100% {
+     opacity:1;
+     transform: translateY(0);
+  }
+} 
+
+@keyframes animateType1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-14px, 9px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+} 
+
+@keyframes animateType2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(18px, -20px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+} 
+
+@keyframes animateType3 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-7px, -3px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+} 
+
+@keyframes animateType4 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-18px, 21px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.card {
+  max-width:500px;
+  position: relative;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: contrast(60%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);;
+}
+.card__image::before {
+  content: "";
+  display: block;
+  padding-top: 70%;
+}
+.card .card__image:hover {
+  filter: contrast(100%);
+}
+.card__image--web {
+  background-image: url('/assets/images/homepage/webCard.jpeg');
+}
+.card__image--salesforce {
+  background-image: url('/assets/images/homepage/salesforceCard.png');
+}
+.card__image--mobile {
+  background-image: url('/assets/images/homepage/mobileCard.jpeg');
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card-side {
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+}
+
+.card-side.front {
+  position: absolute;
+  background-image: url('/assets/images/homepage/card-background.jpg');
+  filter: contrast(70%);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+
+.card-side.back {
+  overflow:hidden; 
+  box-sizing: border-box;
+  transform: rotateY(-180deg);
+  height: 100%;
+  border-radius: 8px;
+  background-color: white;
+}
+.card-side.back .card-content {
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.3em;
+  color: #353c4a;;
+  text-align: justify; 
+}
+.card-side.back .card-header {
+  font-weight: 600; 
+  text-align: center;
+  color: #353c4a;;
+}
+.front-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card.active .card-side.front {
+  transform: rotateY(180deg);
+}
+.card.active .card-side.back {
+  transform: rotateY(0deg);
+} 
+
+

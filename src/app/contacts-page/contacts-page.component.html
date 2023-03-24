@@ -1,0 +1,111 @@
+<section class="contact-page-header">
+  <app-header></app-header>
+  <div class="header-section">
+      <div class="header-text header-text-animation">
+          GET IN TOUCH
+      </div>
+      <div class="under-header-text text-animation">
+        <div>
+          <mat-icon matSuffix>email</mat-icon>
+          <a href="mailto:info@aortasystems.com" class="contact-links">info@aortasystems.com</a>
+        </div>
+
+        <div>
+          <mat-icon matSuffix>phone</mat-icon>
+          <a href="tel:+1(855) 327-0001" class="contact-links">+1(855) 327-0001</a>
+        </div>
+
+        <div>
+          <address><mat-icon matSuffix>location_on</mat-icon>19 Berwick Rd, Hewlett, NY 11557, United States</address>
+        </div>
+      </div>
+  </div>
+
+  <div class="social-medial-links" observeVisibility [debounceTime]="500" (visible)="onVisible($event)" (invisible)="onInVisible($event)">
+    <a href="https://www.facebook.com/AortaSystems" target="_blank">
+      <img src="assets/images/social/facebook.png" height="50">
+    </a>
+    <a href="https://www.linkedin.com/company/aorta-systems-group" target="_blank">
+      <img src="assets/images/social/linkedin.png" height="50">
+    </a>
+    <a href="https://twitter.com/AortaSystems" target="_blank">
+      <img src="assets/images/social/twitter.png" height="50">
+    </a>
+  </div>
+</section>
+
+
+<section class="content">
+  <div class="container">
+
+
+    <div *ngIf="messageSent === true">
+      <div class="info">
+        Thank you for contacting us! We’ve got your message. 
+        The response will be sent to the email address you’ve indicated within 48 hours! In the meantime follow us on
+           <strong><a href="https://www.linkedin.com/company/aorta-systems-group" target="_blank" style="text-decoration: none; color: inherit;">LinkedIn!</a></strong>
+      </div>
+    </div>
+
+    <div *ngIf="messageSent === false">
+      <div class="info text-align-middle">
+        Tell us a little about yourself and we’ll get right back to you
+      </div>
+      <div>
+        <p>
+          <mat-form-field appearance="standard" style="width: 100%;">
+            <mat-label>Your Name</mat-label>
+            <input matInput placeholder="" [formControl]="nameFormControl">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="standard" style="width: 100%;">
+            <mat-label>Email address</mat-label>
+            <input matInput placeholder="" [formControl]="emailFormControl">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>We'll never share your email with anyone else.</mat-hint>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('email')">
+              The email address is incorrect.
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="standard" style="width: 100%;">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="" (input)="handleInputPhone($event)" [formControl]="phoneFormControl">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="legacy" style="width: 100%;">
+            <mat-label >Your message</mat-label>
+            <textarea matInput placeholder="Enter message" rows="7" [formControl]="messageFormControl"></textarea>
+            <mat-error *ngIf="messageFormControl.hasError('required')">
+              Message is required
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p class="text-align-middle">
+          <button mat-stroked-button 
+              color="primary" 
+              class="button-style" 
+              [disabled]="emailFormControl.invalid || nameFormControl.invalid || messageFormControl.invalid || loading"
+              (click)="sendEmail()">
+              Send
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

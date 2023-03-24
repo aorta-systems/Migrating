@@ -1,0 +1,42 @@
+<section class="client-page-header">
+    <app-header></app-header>
+    <div class="header-section">
+        <div class="header-text header-text-animation" observeVisibility [debounceTime]="500" (visible)="onVisible($event)" (invisible)="onInVisible($event)">
+             PARTNERS & CLIENTS
+        </div>
+        <div class="under-header-text text-animation" observeVisibility [debounceTime]="700" (visible)="onVisible($event)" (invisible)="onInVisible($event)">
+            <span>This&nbsp;</span>
+            <span>is&nbsp;</span>
+            <span>only&nbsp;</span>
+            <span>a&nbsp;</span>
+            <span>small&nbsp;</span>
+            <span>sample&nbsp;</span>
+            <span>of&nbsp;</span>
+            <span>our&nbsp;</span>
+            <span>growing&nbsp;</span>
+            <span>list&nbsp;</span>
+            <span>of&nbsp;</span>
+            <span>clients&nbsp;</span>
+            <span>and&nbsp;</span>
+            <span>partners!</span>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container">
+        <div *ngFor="let client of clients" class="client-logo" >
+            <div class="mono-logo">
+                <a [href]="client.url">
+                    <img [src]="client.srcMono" 
+                         [style.animation]="client.animation">
+                </a>
+            </div>
+            <div class="overlay">
+                <a [href]="client.url">
+                    <img [src]="client.src" [style.animation]="client.animation">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
