@@ -2,7 +2,7 @@ name: CI-pipeline-deploy-to-miranghi
 env:  
       EB_PACKAGE_S3_BUCKET_NAME : "miranghi"
       EB_APPLICATION_NAME       : "miranghi"
-      EB_ENVIRONMENT_NAME       : "Newsite-env"
+      EB_ENVIRONMENT_NAME       : "Miranghi-env"
       DEPLOY_PACKAGE_NAME       : "miranghi_${{ github.sha }}.zip"
       AWS_REGION_NAME           : "eu-north-1"
   
